@@ -35,8 +35,8 @@ export function Navigation() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/#" className="text-2xl font-bold text-foreground hover:text-accent transition-colors">
-          {'<dev />'}
+        <Link href="/#" className="text-2xl font-bold hover:text-accent transition-colors text-muted-foreground">
+          {'<vid />'}
         </Link>
 
         <div className="hidden md:flex gap-8">

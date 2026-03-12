@@ -4,6 +4,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* Pastikan tidak ada scroll di body */
+  z-index: 1;
+}
+
 :root {
   /* Light mode - minimal use */
   --background: oklch(0.98 0 0);
@@ -122,7 +131,46 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+.wrapperAll {
+  display: flex;
+  /* Susun anak-anak secara horizontal */
+  flex-direction: row;
+  /* Baris horizontal */
+  overflow-x: hidden;
+  /* Scroll horizontal */
+  overflow-y: hidden;
+  /* Hilangkan scroll vertikal */
+  scroll-snap-type: x mandatory;
+  /* Snap horizontal */
+  width: 100vw;
+  /* Lebar penuh layar */
+  height: 100vh;
+  /* Tinggi penuh layar */
+  scroll-behavior: smooth;
+
+  cursor: grab;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.section {
+  flex: 0 0 100vw;
+  /* Setiap section selebar layar */
+  height: 100vh;
+  /* Setiap section setinggi layar */
+  scroll-snap-align: start;
+  /* Snap ke awal setiap section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  /* Warna latar untuk tes */
+  /* border: 1px solid #ccc;  */
 }

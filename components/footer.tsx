@@ -22,7 +22,7 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-background border-t border-border">
+    <footer  id="contact"  className="bg-background border-t border-border">
       <div className="max-w-6xl mx-auto px-6 py-12">
         <motion.div
           initial={{ opacity: 0 }}
@@ -33,7 +33,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="text-2xl font-bold text-foreground hover:text-accent transition-colors">
-              {'<dev />'}
+              {'<vid />'}
             </Link>
             <p className="text-muted-foreground text-sm mt-2">
               Senior Backend Engineer specializing in distributed systems and scalable architecture.

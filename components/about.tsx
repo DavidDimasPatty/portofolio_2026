@@ -39,7 +39,7 @@ export function About() {
             <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">About Me</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p className="text-lg">
-                I'm a senior software engineer with 8+ years of experience building robust backend systems and scalable infrastructure for world-class organizations. My passion lies at the intersection of system design, performance optimization, and clean architecture.
+                I'm a senior software engineer with 2+ years of experience building robust backend systems and scalable infrastructure for world-class organizations. My passion lies at the intersection of system design, performance optimization, and clean architecture.
               </p>
               <p className="text-lg">
                 Currently, I focus on designing and implementing distributed systems that handle millions of transactions per second while maintaining data consistency and reliability.
@@ -54,8 +54,8 @@ export function About() {
           <motion.div variants={itemVariants} className="space-y-8">
             <div className="space-y-6">
               {[
-                { label: 'Years Experience', value: '8+' },
-                { label: 'Projects Delivered', value: '40+' },
+                { label: 'Years Experience', value: '2+' },
+                { label: 'Projects Delivered', value: '20+' },
                 { label: 'Team Members Mentored', value: '25+' },
               ].map((stat, i) => (
                 <motion.div

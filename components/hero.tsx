@@ -1,5 +1,3 @@
-'use client'
-
 import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 
@@ -25,11 +23,11 @@ export function Hero() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
+    <section className="min-h-screen w-[100vw] flex items-center justify-center pt-20 px-6 relative overflow-hidden">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent opacity-5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-secondary opacity-5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute inset-1 z-1">
+        <div className="absolute top-1/4 left-1/2 w-96 h-96 bg-accent opacity-5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/3 right-1/2 w-96 h-96 bg-secondary opacity-5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       <motion.div

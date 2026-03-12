@@ -16,7 +16,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'High-Performance Payment Gateway',
+    title: 'MNIST Hand Writing Recognition',
     description: 'Distributed payment processing system built on microservices architecture, handling concurrent transactions with sub-100ms latency',
     impact: 'Processes 100K+ transactions per second with 99.99% uptime',
     technologies: ['Go', 'PostgreSQL', 'Kafka', 'gRPC', 'Kubernetes'],
@@ -24,7 +24,7 @@ const projects: Project[] = [
     demo: 'https://example.com',
   },
   {
-    title: 'Real-Time Analytics Platform',
+    title: 'Snake Charmer Machine Learning',
     description: 'Event streaming and real-time analytics infrastructure processing millions of events daily with sub-second query response times',
     impact: 'Reduced analytics latency from 5 minutes to under 1 second',
     technologies: ['Node.js', 'Elasticsearch', 'Redis', 'Apache Kafka', 'GraphQL'],
@@ -32,7 +32,7 @@ const projects: Project[] = [
     demo: 'https://example.com',
   },
   {
-    title: 'Distributed Trace & Observability System',
+    title: 'Simple Piano Tiles',
     description: 'End-to-end observability platform with distributed tracing, metrics aggregation, and intelligent alerting for microservices',
     impact: 'Reduced incident detection time from 30 mins to 2 minutes',
     technologies: ['Jaeger', 'Prometheus', 'Grafana', 'Kubernetes', '.NET Core'],
@@ -48,7 +48,7 @@ const projects: Project[] = [
     demo: 'https://example.com',
   },
   {
-    title: 'Service Mesh & API Gateway',
+    title: 'Game Development John Lemon',
     description: 'Zero-trust service communication layer with automatic mTLS, traffic management, and sophisticated routing policies',
     impact: 'Enabled seamless communication for 200+ microservices',
     technologies: ['Envoy', 'Istio', 'gRPC', 'Docker', 'Terraform'],
@@ -56,13 +56,61 @@ const projects: Project[] = [
     demo: 'https://example.com',
   },
   {
-    title: 'Multi-Region Database Synchronization',
+    title: 'Pelayanan Imam Katolik',
     description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
     impact: 'Achieves sub-second replication across 5 continents',
     technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
     github: 'https://github.com',
     demo: 'https://example.com',
   },
+  {
+    title: 'AI All in One Website',
+    description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
+    impact: 'Achieves sub-second replication across 5 continents',
+    technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
+    github: 'https://github.com',
+    demo: 'https://example.com',
+  },
+  {
+    title: 'Wedding Website',
+    description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
+    impact: 'Achieves sub-second replication across 5 continents',
+    technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
+    github: 'https://github.com',
+    demo: 'https://example.com',
+  },
+  {
+    title: 'Dashboard Website',
+    description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
+    impact: 'Achieves sub-second replication across 5 continents',
+    technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
+    github: 'https://github.com',
+    demo: 'https://example.com',
+  },
+  {
+    title: 'Company Website',
+    description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
+    impact: 'Achieves sub-second replication across 5 continents',
+    technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
+    github: 'https://github.com',
+    demo: 'https://example.com',
+  },
+  {
+    title: 'Reel AI Generator',
+    description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
+    impact: 'Achieves sub-second replication across 5 continents',
+    technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
+    github: 'https://github.com',
+    demo: 'https://example.com',
+  },
+  {
+    title: 'Job Platform App',
+    description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
+    impact: 'Achieves sub-second replication across 5 continents',
+    technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
+    github: 'https://github.com',
+    demo: 'https://example.com',
+  }
 ]
 
 export function Projects() {
@@ -89,8 +137,8 @@ export function Projects() {
   }
 
   return (
-    <section id="projects" ref={ref} className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" ref={ref} className="h-[100%] py-20 px-6 mt-auto overflow-y-auto!">
+      <div className="max-w mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -107,7 +155,7 @@ export function Projects() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-4 md:grid-cols-4 gap-3"
         >
           {projects.map((project, idx) => (
             <motion.div
