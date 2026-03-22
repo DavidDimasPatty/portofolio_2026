@@ -39,7 +39,7 @@ export function Navigation() {
           {'<vid />'}
         </Link>
 
-        <div className="hidden md:flex gap-8">
+        {/* <div className="hidden md:flex gap-8">
           {navItems.map((item, i) => (
             <motion.a
               key={item.label}
@@ -53,7 +53,7 @@ export function Navigation() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
             </motion.a>
           ))}
-        </div>
+        </div> */}
 
         <motion.a
           href="#contact"

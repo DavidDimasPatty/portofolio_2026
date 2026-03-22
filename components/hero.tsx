@@ -1,3 +1,4 @@
+"use client"
 import { motion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 
@@ -23,9 +24,9 @@ export function Hero() {
   }
 
   return (
-    <section className="min-h-screen w-[100vw] flex items-center justify-center pt-20 px-6 relative overflow-hidden">
+    <section className="min-h-screen w-[100vw] flex items-center justify-center pt-20 px-6 relative overflow-hidden bg-gray-200">
       {/* Animated gradient background */}
-      <div className="absolute inset-1 z-1">
+      <div className="absolute inset-1 z-0 bg-transparent">
         <div className="absolute top-1/4 left-1/2 w-96 h-96 bg-accent opacity-5 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/3 right-1/2 w-96 h-96 bg-secondary opacity-5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
@@ -33,23 +34,29 @@ export function Hero() {
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ amount: 0.3 }}
         className="max-w-4xl mx-auto text-center"
+        transition={{ duration: 1 }}
       >
         {/* Subtitle */}
         <motion.div variants={itemVariants}>
           <span className="inline-block px-4 py-2 rounded-full bg-card border border-border text-accent text-sm font-medium mb-6">
-            Welcome to my portfolio
+            David Dimas Patty's Portofolio
           </span>
         </motion.div>
 
         {/* Main heading */}
         <motion.h1
           variants={itemVariants}
-          className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-foreground leading-tight"
+          className="text-8xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white/80 z-20"
         >
-          Senior Backend <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-secondary to-accent">
+          <span className=" bg-linear-to-b from-white/90 via-white/100 to-white/20 bg-clip-text text-transparent [-webkit-text-stroke:3px_white]">
+            Senior Backend
+          </span>
+          <br />
+
+          <span className="bg-linear-to-r from-accent via-secondary to-accent bg-clip-text text-transparent">
             Engineer
           </span>
         </motion.h1>

@@ -137,7 +137,7 @@ export function Projects() {
   }
 
   return (
-    <section id="projects" ref={ref} className="h-[100%] py-20 px-6 mt-auto overflow-y-auto!">
+    <section id="projects" ref={ref} className="h-[100%] py-20 px-6 mt-auto overflow-y-auto! bg-gray-200">
       <div className="max-w mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -155,7 +155,7 @@ export function Projects() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-4 md:grid-cols-4 gap-3"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3"
         >
           {projects.map((project, idx) => (
             <motion.div

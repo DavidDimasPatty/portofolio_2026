@@ -3,10 +3,11 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import Image from "next/image"
 
 export function About() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const isInView = useInView(ref, { amount: 0.3 })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -26,17 +27,39 @@ export function About() {
   }
 
   return (
-    <section id="about" ref={ref} className="py-20 px-6 bg-card/50">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" ref={ref} className="py-20 px-6  h-screen w-screen overflow-y-auto lg:flex items-center ">
+      <div className="max-w-7xl mx-auto">
+
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-10"
         >
+
+          {/* Photo */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col items-center"
+          >
+            <motion.div variants={itemVariants}>
+              <h2 className="text-6xl  font-bold mb-10 text-foreground text-center md:text-left md:mb-20">About Me</h2>
+            </motion.div>
+
+            <motion.div  variants={itemVariants} className="relative w-48 h-48 md:w-64 md:h-64">
+              <Image
+                src="/fotoAboutMe.jpeg"
+                alt="David Patty"
+                fill
+                className="object-cover rounded-2xl border border-border shadow-xl"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+
           {/* Left side */}
           <motion.div variants={itemVariants}>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">About Me</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p className="text-lg">
                 I'm a senior software engineer with 2+ years of experience building robust backend systems and scalable infrastructure for world-class organizations. My passion lies at the intersection of system design, performance optimization, and clean architecture.

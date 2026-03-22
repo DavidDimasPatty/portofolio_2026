@@ -72,8 +72,8 @@ const Home = () => {
 
       <main className="wrapperAll" ref={wrapperRef}>
 
-        <div className="section"><Hero /></div>
-        <div className="section"><About /></div>
+        <div className="section bg-gray-200"><Hero /></div>
+        <div className="section bg-gray-200"><About /></div>
         <div className="section"><Skills /></div>
         <div className="section"><Experience /></div>
         <div className="section"><Projects /></div>
