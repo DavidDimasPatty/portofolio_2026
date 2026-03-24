@@ -14,44 +14,48 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    role: 'Senior Backend Engineer',
-    company: 'FinTech Innovation Labs',
-    period: '2022 - Present',
+    role: 'Web Developer (Internship)',
+    company: 'UNPAR +',
+    period: 'AUG 2020 - DEC 2020',
     description: [
-      'Architected high-throughput payment system handling 100K+ TPS',
-      'Designed microservices infrastructure using Docker & Kubernetes',
-      'Implemented distributed tracing improving incident response'
+      'Assisting in the preparation and development of the UNPAR+ website',
+      "Performing problem-solving related to the UNPAR+ website",
     ],
-    technologies: ['Go', 'PostgreSQL', 'Kafka', 'Kubernetes', 'AWS']
+    technologies: ['HTML', 'CSS', "Java Script", 'CMS']
   },
   {
-    role: 'Lead Software Architect',
-    company: 'Big Tech Corporation',
-    period: '2019 - 2022',
+    role: 'Web Developer (Internship)',
+    company: 'PT. Akur Pratama (YOGYA GROUP)',
+    period: 'JUL 2021 - SEP 2021',
     description: [
-      'Led 12 engineers redesigning infrastructure for 500M+ DAU',
-      'Developed API gateway & service mesh',
-      'Mentored engineers and defined system design standards'
+      'Building a back-end application used for the new employee recruitmentprocess called YoKerja.',
+      'Building a catalog application used for users to view the latestbrochures in Yogya',
+      'Utilized GitLab and Jenkins for streamlined CI/CD processes',
+      'Utilized PostgreSQL for database'
     ],
-    technologies: ['.NET', 'Azure', 'Redis', 'Elastic', 'GraphQL']
+    technologies: ['PHP', 'Laravel', 'PostgreSQL']
   },
   {
-    role: 'Full Stack Engineer',
-    company: 'Startup',
-    period: '2017 - 2019',
+    role: 'Supervisor Back End Developer',
+    company: 'PT. INDOMARCO PRISMATAMA',
+    period: 'NOV 2023 - PRESENT',
     description: [
-      'Built real-time analytics infrastructure',
-      'Created REST + GraphQL APIs',
-      'Implemented CI/CD pipelines'
+      'Created a website and dashboard dedicated to IT audit (ISO) documentstorage for the company.',
+      'Established a scheduler for automated, periodic email dispatches(monthly, weekly, and deadline-driven).',
+      'Utilized GitLab, Docker, and Jenkins for streamlined CI/CD processes',
+      "Responsible for developing transaction APIs for payment systems using SNAP (Standar Open API Pembayaran Indonesia).",
+      "Developed a Central User Management Website and its API to centralizethe account system for the company.",
+      "Created Back Office Website For Cashing-In Bonus and Salary for Employee.",
+      "Designed and developed internal web services tailored to operational website requirements."
     ],
-    technologies: ['Node.js', 'React', 'MongoDB', 'AWS', 'Docker']
+    technologies: ['.NET', 'C#', 'MongoDB', 'MySQL', 'Python', "PHP", "Laravel", "Linux", "Docker", "Git Hub"]
   }
 ]
 
 export function Experience() {
 
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const isInView = useInView(ref, { amount: 0.6 })
 
   return (
     <section id="experience" ref={ref} className="h-screen
@@ -59,7 +63,7 @@ export function Experience() {
   py-20
   px-6
   overflow-y-auto
-  touch-pan-y lg:flex items-center bg-gray-200">
+  touch-pan-y lg:flex items-center">
 
       <div className="max-w mx-auto">
 
@@ -106,7 +110,7 @@ md:w-auto
 
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: 80 }}
+                initial={{ opacity: 0, x: 0 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: idx * 0.2 }}
                 className="relative

@@ -13,7 +13,7 @@ export function About() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 },
+      transition: { staggerChildren: 0.5 },
     },
   }
 
@@ -22,7 +22,7 @@ export function About() {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.8 },
     },
   }
 

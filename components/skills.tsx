@@ -30,7 +30,7 @@ const skillCategories: SkillCategory[] = [
 
 export function Skills() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const isInView = useInView(ref, { amount: 0.3 })
 
   const containerVariants = {
     hidden: { opacity: 0 },

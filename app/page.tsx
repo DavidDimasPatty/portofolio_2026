@@ -10,8 +10,7 @@ import { useEffect, useRef } from 'react'
 
 const Home = () => {
 
-  const wrapperRef = useRef<HTMLElement | null>(null);
-
+  const wrapperRef = useRef<HTMLDivElement  | null>(null);
   useEffect(() => {
 
     const wrapper = wrapperRef.current
@@ -68,17 +67,15 @@ const Home = () => {
   return (
     <div>
 
-      <Navigation />
+      <Navigation wrapperRef={wrapperRef} />
 
       <main className="wrapperAll" ref={wrapperRef}>
-
         <div className="section bg-gray-200"><Hero /></div>
         <div className="section bg-gray-200"><About /></div>
         <div className="section"><Skills /></div>
         <div className="section"><Experience /></div>
         <div className="section"><Projects /></div>
         <div className="section"><Footer /></div>
-
       </main>
 
     </div>

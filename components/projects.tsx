@@ -4,11 +4,11 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { ExternalLink, Github } from 'lucide-react'
-
+import { ProjectCarousel } from '@/components/ui/projectCarrousel'
 interface Project {
   title: string
   description: string
-  impact: string
+  images: string[]
   technologies: string[]
   github?: string
   demo?: string
@@ -17,56 +17,66 @@ interface Project {
 const projects: Project[] = [
   {
     title: 'MNIST Hand Writing Recognition',
-    description: 'Distributed payment processing system built on microservices architecture, handling concurrent transactions with sub-100ms latency',
-    impact: 'Processes 100K+ transactions per second with 99.99% uptime',
-    technologies: ['Go', 'PostgreSQL', 'Kafka', 'gRPC', 'Kubernetes'],
+    description: 'The MNIST Handwriting Recognition project is a remarkable demonstration of the potential of deep learning techniques in the field of image classification. Built using the Python programming language and leveraging the MNIST dataset, this project aims to create a model capable of accurately identifying handwritten digits with remarkable precision.',
+    images: [
+      "/projects/mnist1.jfif",
+      "/projects/mnist2.jfif"
+    ],
+    technologies: ['Python'],
     github: 'https://github.com',
     demo: 'https://example.com',
   },
   {
     title: 'Snake Charmer Machine Learning',
-    description: 'Event streaming and real-time analytics infrastructure processing millions of events daily with sub-second query response times',
-    impact: 'Reduced analytics latency from 5 minutes to under 1 second',
-    technologies: ['Node.js', 'Elasticsearch', 'Redis', 'Apache Kafka', 'GraphQL'],
+    description: 'Snake Charmer is a program from a machine learning project using the Java programming language. The challenge in creating this program was to design the machine learning code to find the best path (score) that a snake can take from the starting point to the endpoint. This program was developed to fulfill one of the computer science project coursework.',
+    images: [
+      "/projects/snake1.jfif",
+    ],
+    technologies: ['Java'],
     github: 'https://github.com',
     demo: 'https://example.com',
   },
   {
     title: 'Simple Piano Tiles',
-    description: 'End-to-end observability platform with distributed tracing, metrics aggregation, and intelligent alerting for microservices',
-    impact: 'Reduced incident detection time from 30 mins to 2 minutes',
-    technologies: ['Jaeger', 'Prometheus', 'Grafana', 'Kubernetes', '.NET Core'],
-    github: 'https://github.com',
-    demo: 'https://example.com',
-  },
-  {
-    title: 'Fraud Detection Engine',
-    description: 'ML-powered real-time fraud detection system using streaming data and advanced anomaly detection algorithms',
-    impact: 'Detects 95%+ fraud attempts with minimal false positives',
-    technologies: ['Python', 'TensorFlow', 'Kafka', 'PostgreSQL', 'Redis'],
+    description: 'The Simple Piano Tiles project stands as a culmination of ingenuity and technical proficiency, developed using the versatile Android Studio platform and crafted with the Java programming language',
+    images: [
+      "/projects/piano1.jfif",
+      "/projects/piano2.jfif"
+    ],
+    technologies: ['OOP', 'Java', 'Android Studio'],
     github: 'https://github.com',
     demo: 'https://example.com',
   },
   {
     title: 'Game Development John Lemon',
-    description: 'Zero-trust service communication layer with automatic mTLS, traffic management, and sophisticated routing policies',
-    impact: 'Enabled seamless communication for 200+ microservices',
-    technologies: ['Envoy', 'Istio', 'gRPC', 'Docker', 'Terraform'],
+    description: 'The John Lemon game project stands as a testament to the fusion of creativity and technical skill, brought to life using the powerful Unity game engine and programmed in the C# programming language. The successful completion of this project not only fulfilled academic requirements but also resulted in the acquisition of a prestigious certificate in Unity 3D Game Development from Sangnila',
+    images: [
+      "/projects/game1.jfif",
+      "/projects/game2.jfif",
+    ],
+    technologies: ['C++', "Unity"],
     github: 'https://github.com',
     demo: 'https://example.com',
   },
   {
     title: 'Pelayanan Imam Katolik',
-    description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
-    impact: 'Achieves sub-second replication across 5 continents',
-    technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
+    description: 'Pelayanan Imam Katolik Application represents an innovative solution utilizing the Flutter framework to facilitate the sacrament reservation process within the Catholic Church. This application aims to streamline the process of reserving sacraments such as baptism, communion, and various other ceremonies for parishioners.',
+    images: [
+      "/projects/pelayanan1.jfif",
+      "/projects/pelayanan2.jfif",
+      "/projects/pelayanan3.jfif"
+    ],
+    technologies: ['OOP', "Multi-agent Systems", "Dart", "Web Services API", "MongoDB", "Flutter"],
     github: 'https://github.com',
     demo: 'https://example.com',
   },
   {
     title: 'AI All in One Website',
     description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
-    impact: 'Achieves sub-second replication across 5 continents',
+    images: [
+      "/projects/aiallinone1.png",
+      "/projects/aiallinone2.png"
+    ],
     technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
     github: 'https://github.com',
     demo: 'https://example.com',
@@ -74,7 +84,11 @@ const projects: Project[] = [
   {
     title: 'Wedding Website',
     description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
-    impact: 'Achieves sub-second replication across 5 continents',
+    images: [
+      "/projects/wedding1.png",
+      "/projects/wedding2.png",
+      "/projects/wedding3.png"
+    ],
     technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
     github: 'https://github.com',
     demo: 'https://example.com',
@@ -82,7 +96,11 @@ const projects: Project[] = [
   {
     title: 'Dashboard Website',
     description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
-    impact: 'Achieves sub-second replication across 5 continents',
+    images: [
+      "/projects/dashboard1.png",
+      "/projects/dashboard2.png",
+      "/projects/dashboard3.png"
+    ],
     technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
     github: 'https://github.com',
     demo: 'https://example.com',
@@ -90,7 +108,11 @@ const projects: Project[] = [
   {
     title: 'Company Website',
     description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
-    impact: 'Achieves sub-second replication across 5 continents',
+    images: [
+      "/projects/company1.png",
+      "/projects/company2.png",
+      "/projects/company3.png"
+    ],
     technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
     github: 'https://github.com',
     demo: 'https://example.com',
@@ -98,7 +120,10 @@ const projects: Project[] = [
   {
     title: 'Reel AI Generator',
     description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
-    impact: 'Achieves sub-second replication across 5 continents',
+    images: [
+      "/projects/reels1.mp4",
+      "/projects/reels2.mp4",
+    ],
     technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
     github: 'https://github.com',
     demo: 'https://example.com',
@@ -106,7 +131,24 @@ const projects: Project[] = [
   {
     title: 'Job Platform App',
     description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
-    impact: 'Achieves sub-second replication across 5 continents',
+    images: [
+      "/projects/jobplatform1.png",
+      "/projects/jobplatform2.png",
+      "/projects/jobplatform3.png",
+      "/projects/jobplatform4.png",
+    ],
+    technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
+    github: 'https://github.com',
+    demo: 'https://example.com',
+  },
+  {
+    title: 'Valentine Website',
+    description: 'Eventually-consistent distributed database synchronization system ensuring data integrity across multiple geographic regions',
+    images: [
+      "/projects/valentine1.png",
+      "/projects/valentine2.png",
+      "/projects/valentine3.png"
+    ],
     technologies: ['PostgreSQL', 'DynamoDB', 'AWS Lambda', 'EventBridge', 'Terraform'],
     github: 'https://github.com',
     demo: 'https://example.com',
@@ -115,7 +157,7 @@ const projects: Project[] = [
 
 export function Projects() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { amount: 0.2 })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -137,8 +179,10 @@ export function Projects() {
   }
 
   return (
-    <section id="projects" ref={ref} className="h-[100%] py-20 px-6 mt-auto overflow-y-auto! bg-gray-200">
-      <div className="max-w mx-auto">
+    <section id="projects" ref={ref} className="h-screen w-screen py-20 
+     px-6 mt-auto overflow-y-auto! bg-gray-200 ">
+
+      <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -172,11 +216,12 @@ export function Projects() {
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   {project.description}
                 </p>
-                <div className="inline-block px-4 py-2 rounded-lg bg-accent/10 border border-accent/20">
+                {/* <div className="inline-block px-4 py-2 rounded-lg bg-accent/10 border border-accent/20">
                   <p className="text-sm font-medium text-accent">
                     {project.impact}
                   </p>
-                </div>
+                </div> */}
+                <ProjectCarousel images={project.images} />
               </div>
 
               {/* Spacer */}

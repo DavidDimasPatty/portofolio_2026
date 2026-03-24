@@ -1,70 +1,73 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
-export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
+type NavigationProps = {
+  wrapperRef: React.RefObject<HTMLDivElement | null>;
+};
+
+export function Navigation({ wrapperRef }: NavigationProps) {
+
+  const [showNav, setShowNav] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
-  const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Contact', href: '#contact' },
-  ]
+    const container = wrapperRef.current
+    if (!container) return
+
+    const handleScroll = () => {
+
+      const sectionIndex = Math.round(
+        container.scrollLeft / window.innerWidth
+      )
+
+      setShowNav(sectionIndex === 0)
+
+    }
+
+    container.addEventListener("scroll", handleScroll)
+
+    return () => {
+      container.removeEventListener("scroll", handleScroll)
+    }
+
+  }, [wrapperRef])
 
   return (
     <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/80 backdrop-blur-md border-b border-border'
-          : 'bg-transparent'
-      }`}
+      initial={{ opacity: 0, y: -40 }}
+      animate={{
+        opacity: showNav ? 1 : 0,
+        y: showNav ? 0 : -80,
+      }}
+      transition={{ duration: 0.35 }}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled
+          ? "bg-transparent "
+          : "bg-transparent"
+        }`}
     >
+
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/#" className="text-2xl font-bold hover:text-accent transition-colors text-muted-foreground">
-          {'<vid />'}
+
+        <Link
+          href="/#"
+          className="text-2xl font-bold hover:text-accent transition-colors text-muted-foreground"
+        >
+          {"<vid />"}
         </Link>
 
-        {/* <div className="hidden md:flex gap-8">
-          {navItems.map((item, i) => (
-            <motion.a
-              key={item.label}
-              href={item.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.3 }}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
-            >
-              {item.label}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
-            </motion.a>
-          ))}
-        </div> */}
-
-        <motion.a
+        <a
           href="#contact"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.3 }}
           className="px-4 py-2 rounded-lg bg-accent text-accent-foreground font-medium hover:opacity-90 transition-opacity text-sm"
         >
           Contact
-        </motion.a>
+        </a>
+
       </div>
+
     </motion.nav>
-  )
+  );
 }
