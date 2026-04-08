@@ -2,8 +2,9 @@ import { useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { twMerge } from "tailwind-merge"
 
-export function ProjectCarousel({ images }: { images: string[] }) {
+export function ProjectCarousel({ images, onClickImage, className }: { images: string[], onClickImage?: () => void, className?: string }) {
 
     const [index, setIndex] = useState(0)
 
@@ -16,7 +17,7 @@ export function ProjectCarousel({ images }: { images: string[] }) {
     }
 
     return (
-        <div className="relative w-full h-48 rounded-lg overflow-hidden border border-border mb-4">
+        <div className={twMerge("relative w-full h-48 rounded-lg overflow-hidden border border-border mb-4", className)}>
 
             <motion.div
                 animate={{ x: `-${index * 100}%` }}
@@ -28,7 +29,7 @@ export function ProjectCarousel({ images }: { images: string[] }) {
                     const isVideo = media.endsWith(".mp4") || media.endsWith(".webm")
 
                     return (
-                        <div key={i} className="relative min-w-full h-full">
+                        <div key={i} className="relative min-w-full h-full cursor-pointer" onClick={onClickImage}>
 
                             {isVideo ? (
                                 <video

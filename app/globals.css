@@ -11,7 +11,7 @@ body {
   overflow: hidden;
   /* Pastikan tidak ada scroll di body */
   z-index: 1;
-  background: red;
+  background: var(--background);
 }
 
 :root {
@@ -144,7 +144,7 @@ body {
   /* Susun anak-anak secara horizontal */
   flex-direction: row;
   /* Baris horizontal */
-  overflow-x: hidden;
+  overflow-x: auto; /* Changed to auto so mobile native swipe works */
   /* Scroll horizontal */
   overflow-y: hidden;
   /* Hilangkan scroll vertikal */
@@ -159,6 +159,14 @@ body {
   cursor: grab;
   user-select: none;
   -webkit-overflow-scrolling: touch;
+
+  /* Sembunyikan scrollbar bawaan tapi tetap bisa di-scroll */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.wrapperAll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .section {
@@ -171,8 +179,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5f5f5;
-  /* Warna latar untuk tes */
+  /* background-color: #f5f5f5; color is removed to allow interactive background */
   /* border: 1px solid #ccc;  */
 }
 

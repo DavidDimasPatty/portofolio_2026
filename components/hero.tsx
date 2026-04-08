@@ -1,6 +1,6 @@
 "use client"
 import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
+import { ArrowDown, ArrowRight } from 'lucide-react'
 
 export function Hero() {
   const containerVariants = {
@@ -24,12 +24,7 @@ export function Hero() {
   }
 
   return (
-    <section className="min-h-screen w-[100vw] flex items-center justify-center pt-20 px-6 relative overflow-hidden bg-gray-200">
-      {/* Animated gradient background */}
-      <div className="absolute inset-1 z-0 bg-transparent">
-        <div className="absolute top-1/4 left-1/2 w-96 h-96 bg-accent opacity-5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/3 right-1/2 w-96 h-96 bg-secondary opacity-5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      </div>
+    <section className="min-h-screen w-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
 
       <motion.div
         variants={containerVariants}
@@ -49,9 +44,9 @@ export function Hero() {
         {/* Main heading */}
         <motion.h1
           variants={itemVariants}
-          className="text-8xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white/80 z-20"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white/80 z-20"
         >
-          <span className=" bg-linear-to-b from-white/90 via-white/100 to-white/20 bg-clip-text text-transparent [-webkit-text-stroke:3px_white]">
+          <span className="bg-linear-to-b from-white/90 via-white/100 to-white/20 bg-clip-text text-transparent [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white] lg:[-webkit-text-stroke:3px_white]">
             Senior Backend
           </span>
           <br />
@@ -64,7 +59,7 @@ export function Hero() {
         {/* Description */}
         <motion.p
           variants={itemVariants}
-          className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed px-4"
         >
           Specializing in distributed systems, microservices architecture, and building scalable APIs for fintech and big tech companies
         </motion.p>
@@ -92,13 +87,20 @@ export function Hero() {
           </motion.a>
         </motion.div>
 
-        {/* Scroll indicator */}
+        {/* Swipe indicator */}
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex justify-center"
+          variants={itemVariants}
+          className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8"
         >
-          <ArrowDown className="w-6 h-6 text-muted-foreground" />
+          <span className="text-xs md:text-sm font-bold tracking-[0.2em] uppercase text-muted-foreground/90 bg-secondary/10 px-6 py-2.5 rounded-full border border-secondary/20 shadow-[0_0_15px_rgba(var(--secondary),0.15)] flex items-center gap-3">
+            Swipe to Explore
+            <motion.div
+              animate={{ x: [0, 10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <ArrowRight className="w-4 h-4 text-accent" />
+            </motion.div>
+          </span>
         </motion.div>
       </motion.div>
     </section>

@@ -53,7 +53,7 @@ export function Skills() {
 
   return (
     <section id="skills" ref={ref} className="h-screen
-  w-screen py-20 px-6 overflow-y-auto lg:flex items-center bg-gray-200">
+  w-screen py-20 px-6 overflow-y-auto lg:flex items-center">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -61,7 +61,7 @@ export function Skills() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-4">Technical Skills</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">Technical Skills</h2>
           <p className="text-xl text-muted-foreground max-w-2xl">
             A comprehensive toolkit built through years of experience across various domains and technologies
           </p>

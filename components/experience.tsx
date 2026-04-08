@@ -63,7 +63,7 @@ export function Experience() {
   py-20
   px-6
   overflow-y-auto
-  touch-pan-y lg:flex items-center">
+  lg:flex items-center">
 
       <div className="max-w mx-auto">
 
@@ -113,15 +113,13 @@ md:w-auto
                 initial={{ opacity: 0, x: 0 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: idx * 0.2 }}
-                className="relative
-md:min-w-[420px]
-w-full"
+                className="relative lg:flex-1 w-full flex"
               >
 
                 {/* timeline dot */}
                 <div className="absolute
 left-[-22px]
-top-25
+top-[25px]
 w-6
 h-6
 bg-accent
@@ -129,32 +127,36 @@ rounded-full
 border-4
 border-background
 md:-top-[35px]
-md:left-[50%]" />
+md:left-[50%]
+md:-translate-x-1/2" />
 
-                <div className="bg-background border border-border rounded-xl p-6 hover:border-accent transition-all ml-2">
+                <div className="bg-background w-full border border-border rounded-xl p-6 hover:border-accent shadow-[0_0_15px_rgba(0,0,0,0.1)] transition-all ml-2 flex flex-col h-full group">
 
-                  <p className="text-sm text-accent mb-1">{exp.period}</p>
+                  <p className="text-sm font-bold tracking-wider text-accent mb-2 uppercase">{exp.period}</p>
 
-                  <h3 className="text-xl font-bold">{exp.role}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold group-hover:text-accent transition-colors">{exp.role}</h3>
 
-                  <p className="text-muted-foreground mb-4">
+                  <p className="text-muted-foreground/80 font-medium mb-6 mt-1 border-b border-border/50 pb-4">
                     {exp.company}
                   </p>
 
-                  <ul className="space-y-2 mb-4">
+                  <ul className="space-y-3 mb-6">
                     {exp.description.map((d, i) => (
-                      <li key={i} className="text-sm text-muted-foreground flex">
-                        <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2 mt-2" />
-                        {d}
+                      <li key={i} className="text-sm text-muted-foreground/90 flex items-start leading-relaxed">
+                        <span className="w-1.5 h-1.5 bg-accent rounded-full mr-3 mt-1.5 shrink-0" />
+                        <span>{d}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap gap-2">
+                  {/* Spacer to push technologies to the bottom */}
+                  <div className="flex-grow" />
+
+                  <div className="flex flex-wrap gap-2 pt-6 mt-auto border-t border-border/30">
                     {exp.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs border border-border rounded-full text-accent"
+                        className="px-3 py-1.5 text-xs font-semibold bg-secondary/10 border border-secondary/20 rounded-full text-secondary"
                       >
                         {tech}
                       </span>

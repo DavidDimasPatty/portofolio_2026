@@ -6,6 +6,7 @@ import { Skills } from '@/components/skills'
 import { Experience } from '@/components/experience'
 import { Projects } from '@/components/projects'
 import { Footer } from '@/components/footer'
+import { InteractiveBackground } from '@/components/interactiveBackground'
 import { useEffect, useRef } from 'react'
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
     }
 
     const handlePointerDown = (e: PointerEvent) => {
+      if (e.pointerType === 'touch') return;
       isDown = true
       startX = e.clientX
       scrollLeft = wrapper.scrollLeft
@@ -37,8 +39,7 @@ const Home = () => {
     }
 
     const handlePointerMove = (e: PointerEvent) => {
-
-      if (!isDown) return
+      if (!isDown || e.pointerType === 'touch') return
 
       const walk = (e.clientX - startX) * 2
       wrapper.scrollLeft = scrollLeft - walk
@@ -66,12 +67,12 @@ const Home = () => {
 
   return (
     <div>
-
+      <InteractiveBackground />
       <Navigation wrapperRef={wrapperRef} />
 
-      <main className="wrapperAll" ref={wrapperRef}>
-        <div className="section bg-gray-200"><Hero /></div>
-        <div className="section bg-gray-200"><About /></div>
+      <main className="wrapperAll relative z-10" ref={wrapperRef}>
+        <div className="section"><Hero /></div>
+        <div className="section"><About /></div>
         <div className="section"><Skills /></div>
         <div className="section"><Experience /></div>
         <div className="section"><Projects /></div>
