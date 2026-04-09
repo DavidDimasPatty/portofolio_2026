@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { twMerge } from "tailwind-merge"
 
-export function ProjectCarousel({ images, onClickImage, className }: { images: string[], onClickImage?: () => void, className?: string }) {
+export function ProjectCarousel({ images, onClickImage, className, objectFit = "cover" }: { images: string[], onClickImage?: () => void, className?: string, objectFit?: "cover" | "contain" }) {
 
     const [index, setIndex] = useState(0)
 
@@ -34,7 +34,7 @@ export function ProjectCarousel({ images, onClickImage, className }: { images: s
                             {isVideo ? (
                                 <video
                                     src={media}
-                                    className="w-full h-full object-cover"
+                                    className={`w-full h-full object-${objectFit}`}
                                     autoPlay
                                     muted
                                     loop
@@ -45,7 +45,7 @@ export function ProjectCarousel({ images, onClickImage, className }: { images: s
                                     src={media}
                                     alt="project screenshot"
                                     fill
-                                    className="object-cover"
+                                    className="w-90 h-90 object-contain"
                                 />
                             )}
 

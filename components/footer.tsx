@@ -22,65 +22,87 @@ export function Footer() {
   ]
 
   return (
-  <div className='h-screen 
-  w-screen py-20 px-6 overflow-y-auto flex-col lg:items-center' id='contact'>
-    <div className="max-w-5xl mx-auto px-6 pt-20 pb-16 text-center">
+  <section className='w-full h-full py-8 md:py-16 px-4 md:px-6 overflow-y-auto flex flex-col justify-start' id='contact'>
+    
+    {/* CTA Card Section */}
+    <div className="max-w-5xl mx-auto w-full mb-8 md:mb-16 relative mt-10 md:mt-0 shrink-0">
+      {/* Glow effect behind card */}
+      <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-transparent to-secondary/20 blur-3xl -z-10 rounded-3xl" />
+      
+      <div className="bg-card/40 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-[2rem] p-6 sm:p-10 md:p-16 text-center shadow-[0_0_50px_rgba(0,0,0,0.3)]">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-white/60"
+        >
+          Let's Build Something <br className="hidden sm:block" /> Great Together
+        </motion.h2>
 
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold mb-6"
-      >
-        Let's Build Something Great Together
-      </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="text-lg text-muted-foreground/90 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
+        >
+          I'm always interested in discussing distributed systems, scalable backend architecture, or exciting engineering opportunities.
+        </motion.p>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="text-muted-foreground max-w-2xl mx-auto mb-8"
-      >
-        I'm always interested in discussing distributed systems,
-        scalable backend architecture, or exciting engineering
-        opportunities.
-      </motion.p>
-
-      <motion.a
-        href="mailto:contact@example.com"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="inline-block px-6 py-3 bg-accent text-black font-medium rounded-lg hover:opacity-90 transition"
-      >
-        Get In Touch
-      </motion.a>
-
+        <motion.a
+          href="mailto:contact@example.com"
+          whileHover={{ scale: 1.05, y: -2 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-accent to-accent/80 text-accent-foreground font-bold rounded-xl shadow-[0_0_30px_rgba(var(--accent),0.4)] hover:shadow-[0_0_40px_rgba(var(--accent),0.6)] transition-all duration-300 text-lg"
+        >
+          <Mail className="w-5 h-5" />
+          Get In Touch
+        </motion.a>
+      </div>
     </div>
 
     {/* MAIN FOOTER */}
-    <div className="max-w-6xl mx-auto px-6 py-12">
-
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-
+    <div className="max-w-6xl mx-auto w-full px-6 py-8 bg-black/20 backdrop-blur-md rounded-3xl border border-white/5 shrink-0 mt-auto mb-10 md:mb-0">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+        
         {/* BRAND */}
-        <div>
-          <h3 className="text-2xl font-bold">{'<vid />'}</h3>
-          <p className="text-muted-foreground text-sm mt-3">
-            Senior Backend Engineer specializing in distributed systems,
-            microservices architecture, and high-performance infrastructure.
+        <div className="md:col-span-1">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-secondary flex items-center justify-center font-bold text-white shadow-lg">D</div>
+            <h3 className="text-xl font-bold tracking-wider">DAVID</h3>
+          </div>
+          <p className="text-muted-foreground/80 text-sm leading-relaxed mb-6 font-medium">
+            Senior Backend Engineer specializing in distributed systems, microservices architecture, and high-performance infrastructure.
           </p>
+          {/* SOCIAL */}
+          <div className="flex gap-3">
+            {socialLinks.map(link => (
+              <motion.a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="p-2.5 rounded-lg border border-white/10 bg-white/5 hover:border-accent hover:bg-accent/10 hover:text-accent transition-all duration-300 text-muted-foreground shadow-sm"
+              >
+                <link.icon className="w-4 h-4" />
+              </motion.a>
+            ))}
+          </div>
         </div>
 
         {/* NAVIGATION */}
         <div>
-          <h4 className="font-semibold mb-4">Navigation</h4>
-          <ul className="space-y-2">
+          <h4 className="text-sm font-bold tracking-[0.15em] uppercase text-foreground mb-6 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-accent" /> Navigation
+          </h4>
+          <ul className="space-y-3">
             {footerLinks.map(link => (
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition"
+                  className="text-sm font-medium text-muted-foreground/80 hover:text-accent transition-colors flex items-center gap-2 group"
                 >
+                  <span className="w-0 h-0.5 bg-accent transition-all group-hover:w-3" />
                   {link.label}
                 </a>
               </li>
@@ -90,54 +112,61 @@ export function Footer() {
 
         {/* RESOURCES */}
         <div>
-          <h4 className="font-semibold mb-4">Resources</h4>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Engineering Notes</a></li>
-            <li><a href="#">Resume</a></li>
-            <li><a href="#">Open Source</a></li>
+          <h4 className="text-sm font-bold tracking-[0.15em] uppercase text-foreground mb-6 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-secondary" /> Resources
+          </h4>
+          <ul className="space-y-3">
+            {[
+              { label: 'Blog', href: '#' },
+              { label: 'Engineering Notes', href: '#' },
+              { label: 'Resume', href: '#' },
+              { label: 'Open Source', href: '#' }
+            ].map(link => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  className="text-sm font-medium text-muted-foreground/80 hover:text-secondary transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
-        {/* SOCIAL */}
+        {/* CONTACT INFO */}
         <div>
-          <h4 className="font-semibold mb-4">Connect</h4>
-          <div className="flex gap-3">
-            {socialLinks.map(link => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="p-2 rounded-lg border border-border hover:border-accent hover:text-accent transition"
-              >
-                <link.icon className="w-4 h-4" />
-              </motion.a>
-            ))}
-          </div>
+          <h4 className="text-sm font-bold tracking-[0.15em] uppercase text-foreground mb-6 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-white/80" /> Contact
+          </h4>
+          <ul className="space-y-4 text-sm font-medium text-muted-foreground/80">
+            <li>Based in Jakarta, Indonesia</li>
+            <li>Available for remote work worldwide</li>
+            <li>
+              <a href="mailto:contact@example.com" className="text-accent hover:underline decoration-accent/50 underline-offset-4">
+                contact@example.com
+              </a>
+            </li>
+          </ul>
         </div>
 
       </div>
 
       {/* DIVIDER */}
-      <div className="border-t border-border my-10" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-8" />
 
       {/* COPYRIGHT */}
-      <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-
+      <div className="flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground/60 font-medium">
         <p>© {currentYear} David Patty. All rights reserved.</p>
-
         <div className="flex gap-6 mt-4 md:mt-0">
-          <a href="#" className="hover:text-foreground">Privacy</a>
-          <a href="#" className="hover:text-foreground">Terms</a>
-          <a href="#" className="hover:text-foreground">Sitemap</a>
+          <a href="#" className="hover:text-white transition-colors">Privacy</a>
+          <a href="#" className="hover:text-white transition-colors">Terms</a>
+          <a href="#" className="hover:text-white transition-colors">Sitemap</a>
         </div>
-
       </div>
 
     </div>
 
-  </div>
+  </section>
   )
 }

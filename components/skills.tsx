@@ -12,7 +12,7 @@ interface SkillCategory {
 const skillCategories: SkillCategory[] = [
   {
     category: 'Backend',
-    skills: ['.NET / ASP.NET', 'Node.js', 'REST API', 'GraphQL', 'Microservices', 'Message Queue', 'gRPC']
+    skills: ['.NET / ASP.NET', 'Node.js', 'REST API', 'GraphQL', 'Microservices', 'Message Queue', 'Socket']
   },
   {
     category: 'Frontend',
@@ -20,11 +20,11 @@ const skillCategories: SkillCategory[] = [
   },
   {
     category: 'Database',
-    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'DynamoDB']
+    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', "MSSQL"]
   },
   {
     category: 'Infrastructure',
-    skills: ['Docker', 'Kubernetes', 'Linux', 'AWS', 'CI/CD', 'Terraform', 'Cloud Architecture']
+    skills: ['Docker', 'Git', 'GCP', 'CI/CD', 'Jenkins', 'Kali', "Ubuntu", "Vercel", "VPS"]
   },
 ]
 

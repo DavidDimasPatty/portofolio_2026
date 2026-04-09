@@ -60,12 +60,11 @@ export function Experience() {
   return (
     <section id="experience" ref={ref} className="h-screen
   w-screen
-  py-20
   px-6
   overflow-y-auto
-  lg:flex items-center">
+  lg:flex">
 
-      <div className="max-w mx-auto">
+      <div className="max-w mx-auto mt-10">
 
         {/* Title */}
         <motion.div
@@ -74,7 +73,7 @@ export function Experience() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-5xl font-bold mb-4 text-foreground">Professional Journey</h2>
+          <h2 className="text-5xl font-bold text-foreground">Professional Journey</h2>
           <p className="text-xl text-muted-foreground">
             Experience building scalable systems
           </p>
