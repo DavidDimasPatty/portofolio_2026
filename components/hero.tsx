@@ -47,7 +47,7 @@ export function Hero() {
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-white/80 z-20"
         >
           <span className="bg-linear-to-b from-white/90 via-white/100 to-white/20 bg-clip-text text-transparent [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white] lg:[-webkit-text-stroke:3px_white]">
-            Senior Backend
+            Software
           </span>
           <br />
 

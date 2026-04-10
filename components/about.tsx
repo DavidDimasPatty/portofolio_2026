@@ -47,7 +47,7 @@ export function About() {
               <h2 className="text-6xl  font-bold mb-10 text-foreground text-center md:text-left md:mb-20">About Me</h2>
             </motion.div>
 
-            <motion.div  variants={itemVariants} className="relative w-48 h-48 md:w-64 md:h-64">
+            <motion.div variants={itemVariants} className="relative w-48 h-48 md:w-64 md:h-64">
               <Image
                 src="/fotoAboutMe.jpeg"
                 alt="David Patty"
@@ -62,7 +62,7 @@ export function About() {
           <motion.div variants={itemVariants}>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p className="text-lg">
-                I'm a senior software engineer with 2+ years of experience building robust backend systems and scalable infrastructure for world-class organizations. My passion lies at the intersection of system design, performance optimization, and clean architecture.
+                I'm a software engineer with 2+ years of experience building robust backend systems and scalable infrastructure for world-class organizations. My passion lies at the intersection of system design, performance optimization, and clean architecture.
               </p>
               <p className="text-lg">
                 Currently, I focus on designing and implementing distributed systems that handle millions of transactions per second while maintaining data consistency and reliability.
