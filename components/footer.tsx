@@ -14,10 +14,17 @@ export function Footer() {
     { label: 'Contact', href: '#contact' },
   ]
 
+  function sendEmail() {
+    const email = "ddimaspatty@gmail.com";
+    const subject = `Halo, David Patty`;
+    const body = `Saya ingin bekerja sama dengan anda.`;
+    const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink, '_blank');
+  }
+
   const socialLinks = [
-    { icon: Github, href: 'https://github.com', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: Github, href: 'https://github.com/DavidDimasPatty', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/david-dimas-patty-97575a208/', label: 'LinkedIn' },
     { icon: Mail, href: 'mailto:ddimaspatty@gmail.com', label: 'Email' },
   ]
 
@@ -49,7 +56,7 @@ export function Footer() {
           </motion.p>
 
           <motion.a
-            href="mailto:ddimaspatty@gmail.com?subject=Halo%20David%20Patty"
+            onClick={sendEmail}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-accent to-accent/80 text-accent-foreground font-bold rounded-xl shadow-[0_0_30px_rgba(var(--accent),0.4)] hover:shadow-[0_0_40px_rgba(var(--accent),0.6)] transition-all duration-300 text-lg"
@@ -67,26 +74,40 @@ export function Footer() {
           {/* BRAND */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-secondary flex items-center justify-center font-bold text-white shadow-lg">D</div>
-              <h3 className="text-xl font-bold tracking-wider">DAVID</h3>
+              <div className="w-15 h-11 rounded-lg bg-gradient-to-br from-accent to-secondary flex items-center justify-center font-bold  text-muted-foreground shadow-lg">&lt;/vid&gt;</div>
+              <h3 className="text-xl font-bold tracking-wider text-foreground">DAVID</h3>
             </div>
             <p className="text-muted-foreground/80 text-sm leading-relaxed mb-6 font-medium">
               Software Engineer specializing in distributed systems, microservices architecture, and high-performance infrastructure.
             </p>
             {/* SOCIAL */}
             <div className="flex gap-3">
-              {socialLinks.map(link => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  className="p-2.5 rounded-lg border border-white/10 bg-white/5 hover:border-accent hover:bg-accent/10 hover:text-accent transition-all duration-300 text-muted-foreground shadow-sm"
-                >
-                  <link.icon className="w-4 h-4" />
-                </motion.a>
-              ))}
+              {socialLinks.map(link => {
+                const Icon = link.icon;
+                return link.label == "Email" ? (
+                  <motion.a
+                    key={link.label}
+                    onClick={sendEmail}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="p-2.5 rounded-lg border border-white/10 bg-white/5 hover:border-accent hover:bg-accent/10 hover:text-accent transition-all duration-300 text-muted-foreground shadow-sm"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </motion.a>
+                ) : (
+                  <motion.a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    className="p-2.5 rounded-lg border border-white/10 bg-white/5 hover:border-accent hover:bg-accent/10 hover:text-accent transition-all duration-300 text-muted-foreground shadow-sm"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </motion.a>
+                );
+              })}
             </div>
           </div>
 
@@ -143,7 +164,7 @@ export function Footer() {
               <li>Based in Jakarta, Indonesia</li>
               <li>Available for remote work worldwide</li>
               <li>
-                <a href="mailto:ddimaspatty@gmail.com" className="text-accent hover:underline decoration-accent/50 underline-offset-4">
+                <a onClick={sendEmail} className="text-accent hover:underline decoration-accent/50 underline-offset-4">
                   ddimaspatty@gmail.com
                 </a>
               </li>
