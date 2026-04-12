@@ -133,7 +133,7 @@ md:-translate-x-1/2" />
 
                   <p className="text-sm font-bold tracking-wider text-accent mb-2 uppercase">{exp.period}</p>
 
-                  <h3 className="text-xl md:text-2xl font-bold group-hover:text-accent transition-colors">{exp.role}</h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-muted-foreground/80 group-hover:text-accent transition-colors">{exp.role}</h3>
 
                   <p className="text-muted-foreground/80 font-medium mb-6 mt-1 border-b border-border/50 pb-4">
                     {exp.company}
