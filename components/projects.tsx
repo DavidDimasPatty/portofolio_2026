@@ -86,18 +86,6 @@ const projects: Project[] = [
     demo: 'http://72.61.214.2:3001',
   },
   {
-    title: 'Wedding Website',
-    description: 'Designed and developed custom wedding websites tailored to clients’ themes, featuring elegant UI, event details, RSVP functionality, and a seamless user experience.',
-    images: [
-      "/projects/wedding1.png",
-      "/projects/wedding2.png",
-      "/projects/wedding3.png"
-    ],
-    technologies: ['React'],
-    github: 'https://github.com/DavidDimasPatty/NikahanV2',
-    demo: 'https://nikahan-v2.vercel.app/',
-  },
-  {
     title: 'Dashboard Website',
     description: 'Built a secure dashboard web application for document management, featuring encrypted file storage and controlled access to ensure data privacy and integrity.',
     images: [
