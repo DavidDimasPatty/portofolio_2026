@@ -145,18 +145,18 @@ const projects: Project[] = [
     github: 'https://github.com/DavidDimasPatty/jobplatform-FE',
     demo: '',
   },
-  {
-    title: 'Valentine Website',
-    description: 'Built a creative and interactive themed website for special occasions, featuring personalized content and engaging visual elements.',
-    images: [
-      "/projects/valentine1.png",
-      "/projects/valentine2.png",
-      "/projects/valentine3.png"
-    ],
-    technologies: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
-    github: 'https://github.com/DavidDimasPatty/Valentine',
-    demo: 'https://valentine-w5vz.vercel.app/',
-  }
+  // {
+  //   title: 'Valentine Website',
+  //   description: 'Built a creative and interactive themed website for special occasions, featuring personalized content and engaging visual elements.',
+  //   images: [
+  //     "/projects/valentine1.png",
+  //     "/projects/valentine2.png",
+  //     "/projects/valentine3.png"
+  //   ],
+  //   technologies: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
+  //   github: 'https://github.com/DavidDimasPatty/Valentine',
+  //   demo: 'https://valentine-w5vz.vercel.app/',
+  // }
 ]
 
 export function Projects() {
