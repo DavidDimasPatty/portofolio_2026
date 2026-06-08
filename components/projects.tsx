@@ -109,17 +109,7 @@ const projects: Project[] = [
     github: 'https://github.com/DavidDimasPatty/PortofolioFL2',
     demo: 'https://ikodora.com/',
   },
-  {
-    title: 'Reel AI Generator',
-    description: 'Created an AI-based tool to automatically generate short-form video content for social media, streamlining the content creation process.',
-    images: [
-      "/projects/reels1.mp4",
-      "/projects/reels2.mp4",
-    ],
-    technologies: ['Python', 'Hugging Face'],
-    github: 'https://github.com/DavidDimasPatty/ReelADS',
-    demo: '',
-  },
+
   {
     title: 'Job Platform App',
     description: 'Developing a job platform application where HR actively searches and connects with candidates, reversing the traditional job-seeking flow for more efficient recruitment.',
@@ -133,6 +123,38 @@ const projects: Project[] = [
     github: 'https://github.com/DavidDimasPatty/jobplatform-FE',
     demo: '',
   },
+  {
+    title: 'Reel AI Generator',
+    description: 'Created an AI-based tool to automatically generate short-form video content for social media, streamlining the content creation process.',
+    images: [
+      "/projects/reels1.mp4",
+      "/projects/reels2.mp4",
+    ],
+    technologies: ['Python', 'Hugging Face'],
+    github: 'https://github.com/DavidDimasPatty/ReelADS',
+    demo: '',
+  },
+  {
+    title: 'AI Companion',
+    description: 'Developed AI Companion Desktop, an AI-powered virtual assistant capable of understanding user commands, providing intelligent responses, and assisting with everyday productivity tasks.',
+    images: [
+      "/projects/AI Companion.mp4",
+    ],
+    technologies: ['GO', 'Swail', 'GPT'],
+    github: 'https://github.com/DavidDimasPatty/DesktopAICompanion',
+    demo: '',
+  },
+  {
+    title: 'AI Legal Review',
+    description: 'Developed AI Legal Review, an AI-driven solution for automated legal document analysis, contract review, and risk identification to streamline the document review process.',
+    images: [
+      "/projects/AI Legal Review.mp4",
+    ],
+    technologies: ['Python', 'Gemini'],
+    github: 'https://github.com/DavidDimasPatty/AI-LegalReview',
+    demo: '',
+  }
+
   // {
   //   title: 'Valentine Website',
   //   description: 'Built a creative and interactive themed website for special occasions, featuring personalized content and engaging visual elements.',
