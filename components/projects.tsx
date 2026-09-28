@@ -153,6 +153,35 @@ const projects: Project[] = [
     technologies: ['Python', 'Gemini'],
     github: 'https://github.com/DavidDimasPatty/AI-LegalReview',
     demo: '',
+  },
+  {
+    title: 'ERP Web Mitra Motor',
+    description: 'Developed an ERP system for Mitra Motor, streamlining their business operations and improving efficiency.',
+    images: [
+      "/projects/mitra motor.jpg",
+      "/projects/mitra motor 1.jpg",
+      "/projects/mitra motor 2.jpg",
+      "/projects/mitra motor 3.jpg",
+      "/projects/mitra motor 4.jpg",
+      "/projects/mitra motor 4.jpeg",
+    ],
+    technologies: ['Next.js', 'MySQL', 'TailWind CSS', 'ESC/POS'],
+    github: 'https://github.com/DavidDimasPatty/ERP_AUTO',
+    demo: '',
+  },
+  {
+    title: 'Manajamen SekolahKu',
+    description: 'Developed a school management system to streamline administrative tasks and improve overall efficiency.',
+    images: [
+      "/projects/sekolahku 1.jpg",
+      "/projects/sekolahku 2.jpg",
+      "/projects/sekolahku 3.jpg",
+      "/projects/sekolahku 4.jpg",
+      "/projects/sekolahku 5.jpg",
+    ],
+   technologies: ['Next.js', 'MongoDB', 'TailWind CSS', 'Google Drive API'],
+    github: 'https://github.com/DavidDimasPatty/SistemManajemenSekolah',
+    demo: '',
   }
 
   // {
